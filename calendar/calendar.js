@@ -42,7 +42,7 @@ var MyCalendar = (function () {
 
             //各月份的总天数
             var leap = self.IsLeap(par_year);
-            var daysMonth = new Array(31, 28 + leap, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31);
+            var daysMonth = [31, 28 + leap, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 
             //日历行数
             var rows = Math.ceil( (daysMonth[par_month] + week) / 7 );
@@ -99,16 +99,13 @@ var MyCalendar = (function () {
                 var className = $(this).attr("class");
 
                 if( className != "hide_day" ){
-                    window.location.href = "everdaybill.html?date=" + dataStr;
+                    alert(dataStr);
                 }
             });
         },
 
         Init: function () {
             var self = this;
-
-            // document.getElementsByClassName("icon_left")[0].className = "";
-            // document.getElementsByClassName("icon_right")[0].className = "";
 
             //我的日历
             var date = new Date(); //当前Date资讯

@@ -36,7 +36,7 @@
 		</ul>
 	</div>
 	
-	<script src="jquery-1.9.1.min.js"></script>
+	<script src="lib/jquery-1.9.1.min.js"></script>
 	<script src="calendar.js"></script>
 	<script>
 		window.onload = function () {
@@ -56,12 +56,11 @@
 				nowMon -= 1;
 			}
 
-			if( nowMon == 1 && nowYear == 2016 ){
+			if( nowMon == 1 && nowYear == 2000 ){
 				el.className = "icon_hide_left";
 			}
 
-//			console.log(nowMon + "; " + nowYear);
-			if( nowMon >= 1 && nowYear >= 2016 ){
+			if( nowMon >= 1 && nowYear >= 2000 ){
 				var iconHideRight = document.getElementsByClassName("icon_hide_right");
 				if( iconHideRight.length > 0 ){
 					iconHideRight[0].className = "icon_right";
@@ -82,8 +81,6 @@
 			}else{
 				nowMon += 1;
 			}
-
-//			console.log(nowMon + "; " + nowYear);
 
 			//系统当前时间
 			var sysMon = MyCalendar.nowMonth + 1;
