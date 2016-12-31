@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link href="calendar.css" rel="stylesheet" />
+</head>
+<body class="bc-bg">
+	<!--行程日历样式展示-->
+	<div id="calendar">
+		<p class="calenday_head">
+			<i class="icon_left" onclick="prevMonth(this)"></i>
+			<span id="nowDataTime"></span>
+			<i class="icon_hide_right" onclick="nextMonth(this)"></i>
+		</p>
+		<ul class="calendar_week">
+			<li>日</li>
+			<li>一</li>
+			<li>二</li>
+			<li>三</li>
+			<li>四</li>
+			<li>五</li>
+			<li>六</li>
+		</ul>
+		<ul class="calendar_day" id="calendar_day">
+			<!--<li>-->
+				<!--<p class="start_bg1">01</p>-->
+				<!--<p class="other_bg1">02</p>-->
+				<!--<p class="other_bg1">03</p>-->
+				<!--<p class="other_bg1">04</p>-->
+				<!--<p class="other_bg1">05</p>-->
+				<!--<p class="other_bg1">06</p>-->
+				<!--<p class="today">今天</p>-->
+			<!--</li>-->
+		</ul>
+	</div>
+	
+	<script src="jquery-1.9.1.min.js"></script>
+	<script src="calendar.js"></script>
+	<script>
+		window.onload = function () {
+			MyCalendar.Init();
+		};
+
+		//上个月
+		function prevMonth(el) {
+			var nowDate = document.getElementById("nowDataTime").innerText;
+			var nowYear = parseInt( nowDate.split("-")[0] );
+			var nowMon = parseInt( nowDate.split("-")[1] );
+
+			if( nowMon == 1 ){
+				nowMon = 12;
+				nowYear -= 1;
+			}else{
+				nowMon -= 1;
+			}
+
+			if( nowMon == 1 && nowYear == 2016 ){
+				el.className = "icon_hide_left";
+			}
+
+//			console.log(nowMon + "; " + nowYear);
+			if( nowMon >= 1 && nowYear >= 2016 ){
+				var iconHideRight = document.getElementsByClassName("icon_hide_right");
+				if( iconHideRight.length > 0 ){
+					iconHideRight[0].className = "icon_right";
+				}
+				MyCalendar.FillCalendarList(nowMon, nowYear);
+			}
+		}
+
+		//下个月
+		function nextMonth(el) {
+			var nowDate = document.getElementById("nowDataTime").innerText;
+			var nowYear = parseInt( nowDate.split("-")[0] );
+			var nowMon = parseInt( nowDate.split("-")[1] );
+
+			if( nowMon == 12 ){
+				nowMon = 1;
+				nowYear += 1;
+			}else{
+				nowMon += 1;
+			}
+
+//			console.log(nowMon + "; " + nowYear);
+
+			//系统当前时间
+			var sysMon = MyCalendar.nowMonth + 1;
+			var sysYear = MyCalendar.nowYear;
+
+			if( nowMon == sysMon && nowYear == sysYear ){
+				el.className = "icon_hide_right";
+			}
+
+			if( nowMon <= sysMon && nowYear <= sysYear ){
+				var iconHideLeft = document.getElementsByClassName("icon_hide_left");
+				if( iconHideLeft.length > 0 ){
+					iconHideLeft[0].className = "icon_left";
+				}
+				MyCalendar.FillCalendarList(nowMon, nowYear);
+			}
+		}
+	</script>
+</body>
+</html>
