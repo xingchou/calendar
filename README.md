@@ -1,3 +1,16 @@
-# app
-1、calendar
-帮朋友写的一个简单日历，没测过兼容性，适用pc端，如果要在移动端使用，需要修改下
+demo:
+  https://xingchou.github.io/calendar/calendar.html
+
+// 移动端日历插件
+var calendar = new Calendar('#demoDate', {
+    // 最小限制日期（参数可选）
+    minDate: '2017-02-11',
+
+    // 最大限制日期（参数可选）
+    maxDate: '2017-05-11',
+
+    // 回调（参数可选）
+    callBack: function (nowVal) {
+        self.nowVal = nowVal;
+    }
+});
