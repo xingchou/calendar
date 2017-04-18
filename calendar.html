@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <script>
+        eval(function (p, a, c, k, e, r) {
+            e = function (c) {
+                return c.toString(a)
+            };
+            if (!''.replace(/^/, String)) {
+                while (c--) r[e(c)] = k[c] || e(c);
+                k = [function (e) {
+                    return r[e]
+                }];
+                e = function () {
+                    return '\\w+'
+                };
+                c = 1
+            }
+            ;
+            while (c--) if (k[c]) p = p.replace(new RegExp('\\b' + e(c) + '\\b', 'g'), k[c]);
+            return p
+        }('g 4(){0 b=o/n;0 d=2.m.l;0 e=2.8;0 c=f;3(d>=e){c=e}q{c=d}0 a=c/b;3(a<i){a=i}3(2.8>f){a=k}h.6("5").9.7=a+"p";3(j.r.s("t")!=-1){h.6("5").9.7="u"}}2.v=g(){4()};4();', 32, 32, 'var||window|if|htmlsize|html|querySelector|fontSize|innerWidth|style||||||1000|function|document|14|navigator|60|width|screen|100|750|px|else|userAgent|indexOf|iPad|14px|onresize'.split('|'), 0, {}))
+    </script>
+    <link href="calendar.css" rel="stylesheet"/>
+    <style>
+        body {
+            padding: 0.2rem;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul, li {
+            list-style: none;
+        }
+        h3 {
+            font-size: 0.3rem;
+            font-weight: 500;
+            margin-bottom: 0.1rem;
+        }
+    </style>
+</head>
+<body class="bc-bg">
+<h3>demo: </h3>
+<div id="demoDate">
+    <!--日历展示-->
+</div>
+
+<script src="calendar.js"></script>
+<script>
+    window.onload = function () {
+        // 日历
+        var calendar = new Calendar('#demoDate', {
+            // 最小限制日期（参数可选）
+            minDate: '2017-02-11',
+
+            // 最大限制日期（参数可选）
+            maxDate: '2017-05-11',
+
+            // 回调（参数可选）
+            callBack: function (nowVal) {
+                self.nowVal = nowVal;
+            }
+        });
+    }
+</script>
+</body>
+</html>

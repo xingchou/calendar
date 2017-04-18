@@ -1,0 +1,104 @@
+/*日历表格*/
+#calendar {
+    font-size: 0.3rem;
+    width: 100%;
+    overflow: hidden;
+    margin: 0.2rem auto;
+    border: 1px solid #e9e9e9;
+    border-radius: 5px;
+    color: #333333;
+    background: #f1f1f1;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.calenday_head {
+    text-align: center;
+    padding: 0.2rem 0 0.1rem;
+}
+.calenday_head > span {
+    font-size: 0.32rem;
+    display: inline-block;
+    vertical-align: middle;
+}
+.calenday_head > i {
+    display: inline-block;
+    width: 1.2rem;
+    height: 0.32rem;
+    vertical-align: middle;
+}
+.calenday_head > i:active {
+    opacity: 0.5;
+}
+.calenday_head > i.icon_left {
+    background: url("./img/icon-left.png") no-repeat;
+    background-size: auto 100%;
+    background-position: center;
+}
+.calenday_head > i.icon_hide_left {
+    background: url("./img/icon-left-hide.png") no-repeat;
+    background-size: auto 100%;
+    background-position: center;
+}
+.calenday_head > i.icon_right {
+    background: url("./img/icon-right.png") no-repeat;
+    background-size: auto 100%;
+    background-position: center;
+}
+.calenday_head > i.icon_hide_right {
+    background: url("./img/icon-right-hide.png") no-repeat;
+    background-size: auto 100%;
+    background-position: center;
+}
+
+/*日历星期*/
+.calendar_week {
+    font-size: 0.3rem;
+    width: 100%;
+    height: 0.9rem;
+    line-height: 0.9rem;
+    text-align: center;
+    background: #f1f1f1;
+}
+.calendar_week > li {
+    position:relative;
+    float: left;
+    width: 14.2857%;
+}
+.calendar_day {
+    width: 100%;
+    height: auto;
+    text-align: center;
+}
+.calendar_day > li {
+    height: 1rem;
+    line-height: 1rem;
+}
+.calendar_day > li > p {
+    float: left;
+    width: 14.28%;
+    height: 1rem;
+    text-align: center;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow:ellipsis;
+}
+.calendar_day > li > p > span {
+    display: inline-block;
+    width: 0.6rem;
+    height: 0.6rem;
+    line-height: 0.6rem;
+}
+.today > span {
+    color: #00A1E9 !important;
+}
+.hide_day {
+    color: #cccccc !important;
+}
+.cd_active > span {
+    color: white !important;
+    background: #00A1E9;
+    border-radius: 50%;
+}
