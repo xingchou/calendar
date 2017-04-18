@@ -3,6 +3,7 @@ demo:
 
 // 移动端日历插件
 var calendar = new Calendar('#demoDate', {
+
     // 最小限制日期（参数可选）
     minDate: '2017-02-11',
 
