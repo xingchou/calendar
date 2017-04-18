@@ -3,101 +3,70 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <link href="calendar.css" rel="stylesheet" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <script>
+        eval(function (p, a, c, k, e, r) {
+            e = function (c) {
+                return c.toString(a)
+            };
+            if (!''.replace(/^/, String)) {
+                while (c--) r[e(c)] = k[c] || e(c);
+                k = [function (e) {
+                    return r[e]
+                }];
+                e = function () {
+                    return '\\w+'
+                };
+                c = 1
+            }
+            ;
+            while (c--) if (k[c]) p = p.replace(new RegExp('\\b' + e(c) + '\\b', 'g'), k[c]);
+            return p
+        }('g 4(){0 b=o/n;0 d=2.m.l;0 e=2.8;0 c=f;3(d>=e){c=e}q{c=d}0 a=c/b;3(a<i){a=i}3(2.8>f){a=k}h.6("5").9.7=a+"p";3(j.r.s("t")!=-1){h.6("5").9.7="u"}}2.v=g(){4()};4();', 32, 32, 'var||window|if|htmlsize|html|querySelector|fontSize|innerWidth|style||||||1000|function|document|14|navigator|60|width|screen|100|750|px|else|userAgent|indexOf|iPad|14px|onresize'.split('|'), 0, {}))
+    </script>
+    <link href="calendar.css" rel="stylesheet"/>
+    <style>
+        body {
+            padding: 0.2rem;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul, li {
+            list-style: none;
+        }
+        h3 {
+            font-size: 0.3rem;
+            font-weight: 500;
+            margin-bottom: 0.1rem;
+        }
+    </style>
 </head>
 <body class="bc-bg">
-	<!--行程日历样式展示-->
-	<div id="calendar">
-		<p class="calenday_head">
-			<i class="icon_left" onclick="prevMonth(this)"></i>
-			<span id="nowDataTime"></span>
-			<i class="icon_hide_right" onclick="nextMonth(this)"></i>
-		</p>
-		<ul class="calendar_week">
-			<li>日</li>
-			<li>一</li>
-			<li>二</li>
-			<li>三</li>
-			<li>四</li>
-			<li>五</li>
-			<li>六</li>
-		</ul>
-		<ul class="calendar_day" id="calendar_day">
-			<!--<li>-->
-				<!--<p class="start_bg1">01</p>-->
-				<!--<p class="other_bg1">02</p>-->
-				<!--<p class="other_bg1">03</p>-->
-				<!--<p class="other_bg1">04</p>-->
-				<!--<p class="other_bg1">05</p>-->
-				<!--<p class="other_bg1">06</p>-->
-				<!--<p class="today">今天</p>-->
-			<!--</li>-->
-		</ul>
-	</div>
-	
-	<script src="lib/jquery-1.9.1.min.js"></script>
-	<script src="calendar.js"></script>
-	<script>
-		window.onload = function () {
-			MyCalendar.Init();
-		};
+<h3>demo: </h3>
+<div id="demoDate">
+    <!--日历展示-->
+</div>
 
-		//上个月
-		function prevMonth(el) {
-			var nowDate = document.getElementById("nowDataTime").innerText;
-			var nowYear = parseInt( nowDate.split("-")[0] );
-			var nowMon = parseInt( nowDate.split("-")[1] );
+<script src="calendar.js"></script>
+<script>
+    window.onload = function () {
+        // 日历
+        var calendar = new Calendar('#demoDate', {
+            // 最小限制日期（参数可选）
+            minDate: '2017-02-11',
 
-			if( nowMon == 1 ){
-				nowMon = 12;
-				nowYear -= 1;
-			}else{
-				nowMon -= 1;
-			}
+            // 最大限制日期（参数可选）
+            maxDate: '2017-05-11',
 
-			if( nowMon == 1 && nowYear == 2000 ){
-				el.className = "icon_hide_left";
-			}
-
-			if( nowMon >= 1 && nowYear >= 2000 ){
-				var iconHideRight = document.getElementsByClassName("icon_hide_right");
-				if( iconHideRight.length > 0 ){
-					iconHideRight[0].className = "icon_right";
-				}
-				MyCalendar.FillCalendarList(nowMon, nowYear);
-			}
-		}
-
-		//下个月
-		function nextMonth(el) {
-			var nowDate = document.getElementById("nowDataTime").innerText;
-			var nowYear = parseInt( nowDate.split("-")[0] );
-			var nowMon = parseInt( nowDate.split("-")[1] );
-
-			if( nowMon == 12 ){
-				nowMon = 1;
-				nowYear += 1;
-			}else{
-				nowMon += 1;
-			}
-
-			//系统当前时间
-			var sysMon = MyCalendar.nowMonth + 1;
-			var sysYear = MyCalendar.nowYear;
-
-			if( nowMon == sysMon && nowYear == sysYear ){
-				el.className = "icon_hide_right";
-			}
-
-			if( nowMon <= sysMon && nowYear <= sysYear ){
-				var iconHideLeft = document.getElementsByClassName("icon_hide_left");
-				if( iconHideLeft.length > 0 ){
-					iconHideLeft[0].className = "icon_left";
-				}
-				MyCalendar.FillCalendarList(nowMon, nowYear);
-			}
-		}
-	</script>
+            // 回调（参数可选）
+            callBack: function (nowVal) {
+                self.nowVal = nowVal;
+            }
+        });
+    }
+</script>
 </body>
 </html>
