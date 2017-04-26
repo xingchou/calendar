@@ -1,3 +1,6 @@
+/**
+ * Calendar v1.0 Created by zx.
+ */
 //日历控件
 (function (window, document, Math) {
 
@@ -285,5 +288,3 @@
     }
 
 })(window, document, Math);
-
-// export default Calendar;
