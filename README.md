@@ -1,5 +1,5 @@
 demo:
-https://xingchou.github.io/calendar/calendar.html
+https://xingchou.github.io/pluginApp/dist/index.html#/list/calendar
 
 
 // 移动端日历插件
