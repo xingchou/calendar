@@ -1,6 +1,7 @@
 # calendar
 
 
+## Function
 ```javascript
 // 移动端日历插件
 var calendar = new Calendar('#demoDate', {
@@ -12,7 +13,7 @@ var calendar = new Calendar('#demoDate', {
 
 	// 回调（参数可选）
 	callBack: function (nowVal) {
-		//
+		//nowVal为当前选择的值
 	}
 });
 ```
